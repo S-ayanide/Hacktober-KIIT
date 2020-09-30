@@ -23,39 +23,40 @@ export default {
     small: { lg: '0.875rem', md: '0.75rem' },
   },
   colors: {
-    primary:{
-    PrimaryMain:'#0069FF',
-    primaryLight: '#93C2DB',
-    primaryDark: '#072540',
+   colors: {
+     primary:{
+   	  Main:'#0069FF',	
+	    Light: '#93C2DB',
+      Dark: '#072540',
     },
     secondary:{
-      secondaryMain:'#FF8AE2',
-      secondaryLight:'#FF8AE2',
-      secondaryDark:'#9C4668',
+      Main:'#FF8AE2',
+      Light:'#FF8AE2',
+      Dark:'#9C4668',
     },
     text:{
-    textPrimary: '#FFFFFF',
-    textSecondary: '#93C2DB',
-    textDisabled:'#5B6987',
+    	Primary: '#FFFFFF',
+    	Secondary: '#93C2DB',
+    	Disabled:'#5B6987',
     },
     tertiary:{
-    lightBlue:'#F6F9FC',
-    grey1:'#828282',
-    metalBlue:'#183D5D'
+    	lightBlue:'#F6F9FC',
+    	grey1:'#828282',
+    	metalBlue:'#183D5D'
     },
     backgroud:{
-    backgroundDefault:'#072540',
-    backgroundPaper:'#FFFFFF',
+    	Default:'#072540',
+    	Paper:'#FFFFFF',
     },
     error:{
-    errorMain:'#CA2C2C',
-    errorLight:'#CA2C2C',
-    errorDark:'#CA2C2C',
+    	Main:'#CA2C2C',
+    	Light:'#CA2C2C',
+    	Dark:'#CA2C2C',
     },
     success:{
-    successMain:'#109B67',
-    successLight:'#109B67',
-    successDark:'#109B67',
+    	Main:'#109B67',
+    	Light:'#109B67',
+    	Dark:'#109B67',
     },
 
     grayText: (opacity: number): string =>
