@@ -1,6 +1,10 @@
 import React from 'react'
 import { Layout } from '../components/layout'
-import { Head, SecondHead } from '../components/sections/Home'
+import {
+  Head,
+  ProjectsToContribute,
+  SecondHead,
+} from '../components/sections/Home'
 import { SEO } from '../components/seo'
 
 const App = () => {
@@ -9,6 +13,7 @@ const App = () => {
       <SEO />
       <Head />
       <SecondHead />
+      <ProjectsToContribute />
     </Layout>
   )
 }
