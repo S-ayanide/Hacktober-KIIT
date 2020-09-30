@@ -24,7 +24,7 @@ export default {
   },
   colors: {
     backgroundLight: '#F9FAFC',
-    backgroundDark: '#F4F5F7',
+    backgroundDark: '#072540',
     spaceGrey: '#F1F2F6',
     lightGray: '#EBEBEB',
     darkGray: '#6F6F6F',
