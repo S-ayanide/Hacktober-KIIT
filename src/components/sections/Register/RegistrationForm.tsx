@@ -1,5 +1,5 @@
-import React from "react";
-import styled, { useTheme } from "styled-components";
+import React, { useState } from "react";
+import styled from "styled-components";
 import { SectionDark } from "../../layout";
 
 const Heading = styled.h1`
@@ -13,7 +13,7 @@ const SubHeading = styled.h2`
     font-size: ${(props) => (props.theme.screens.md ? "1.3rem" : "1.8rem")};
 `;
 
-const FormContainer = styled.div`
+const FormContainer = styled.form`
     background-color: #183d5d;
     border-radius: 10px;
     padding: 3rem;
@@ -50,7 +50,11 @@ const FormInput = styled.input.attrs((props) => ({
     font-size: 1.3rem;
 `;
 
-const PersonalDetails: React.FC = () => {
+interface form_prop {
+    changeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const PersonalDetails: React.FC<form_prop> = ({ changeHandler }) => {
     return (
         <div>
             <FormHead>Personal Detail</FormHead>
@@ -67,32 +71,56 @@ const PersonalDetails: React.FC = () => {
             <br />
             <br />
 
-            <form>
-                <FormInputsContainer>
-                    <FormInput required placeholder="* First Name"></FormInput>
-                    <FormInput required placeholder="* Last Name"></FormInput>
-                    <FormInput
-                        required
-                        type="email"
-                        placeholder="* Personal Email"
-                    ></FormInput>
-                    <FormInput
-                        required
-                        type="email"
-                        placeholder="* KIIT Email"
-                    ></FormInput>
-                    <FormInput placeholder="KIIT Roll Number"></FormInput>
-                    <FormInput
-                        required
-                        placeholder="* Github Username"
-                    ></FormInput>
-                </FormInputsContainer>
-            </form>
+            <FormInputsContainer>
+                <FormInput
+                    required
+                    name="first_name"
+                    onChange={changeHandler}
+                    placeholder="* First Name"
+                ></FormInput>
+
+                <FormInput
+                    required
+                    name="last_name"
+                    onChange={changeHandler}
+                    placeholder="* Last Name"
+                ></FormInput>
+
+                <FormInput
+                    required
+                    type="email"
+                    name="personal_email"
+                    onChange={changeHandler}
+                    placeholder="* Personal Email"
+                ></FormInput>
+
+                <FormInput
+                    required
+                    type="email"
+                    name="kiit_email"
+                    onChange={changeHandler}
+                    placeholder="* KIIT Email"
+                ></FormInput>
+
+                <FormInput
+					type="number"
+                    name="kiit_roll_no"
+                    onChange={changeHandler}
+                    placeholder="KIIT Roll Number"
+                ></FormInput>
+
+                <FormInput
+                    name="github_username"
+                    onChange={changeHandler}
+                    required
+                    placeholder="* Github Username"
+                ></FormInput>
+            </FormInputsContainer>
         </div>
     );
 };
 
-const PrizesAddress: React.FC = () => {
+const PrizesAddress: React.FC<form_prop> = ({ changeHandler }) => {
     return (
         <div>
             <FormHead>Prizes and Address</FormHead>
@@ -105,21 +133,54 @@ const PrizesAddress: React.FC = () => {
             <br />
 
             <FormInputsContainer>
-                <FormInput required placeholder="* Address Line 1"></FormInput>
-                <FormInput required placeholder="* Address Line 2"></FormInput>
                 <FormInput
+                    name="addr_line_1"
+                    onChange={changeHandler}
+                    required
+                    placeholder="* Address Line 1"
+                ></FormInput>
+
+                <FormInput
+                    name="addr_line_2"
+                    onChange={changeHandler}
+                    required
+                    placeholder="* Address Line 2"
+                ></FormInput>
+
+                <FormInput
+                    name="state"
+                    onChange={changeHandler}
                     required
                     placeholder="* State / Province"
                 ></FormInput>
-                <FormInput required placeholder="* City"></FormInput>
+
                 <FormInput
                     required
+                    name="city"
+                    onChange={changeHandler}
+                    placeholder="* City"
+                ></FormInput>
+
+                <FormInput
+					required
+					name="zipcode"
+					onChange={changeHandler}
                     type="number"
                     placeholder="* Postal / Zip Code"
                 ></FormInput>
-                <FormInput required type="tel" placeholder="* Phone Number"></FormInput>
 
-                <FormInput required
+                <FormInput
+					required
+					name="phone_no"
+					onChange={changeHandler}
+                    type="number"
+                    placeholder="* Phone Number"
+                ></FormInput>
+
+                <FormInput
+					required
+					name="tshirt_size"
+					onChange={changeHandler}
                     list="tshirt-sizes"
                     placeholder="* Pick a your tshirt size"
                 ></FormInput>
@@ -135,7 +196,52 @@ const PrizesAddress: React.FC = () => {
     );
 };
 
+const SubmitButton = styled.input.attrs({
+    type: "submit",
+    value: "SUBMIT",
+})`
+    background-color: #0069ff;
+    border: none;
+    color: white;
+    border-radius: 110px;
+    padding: 1rem 4rem 1rem 4rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+`;
+
+const SubmissionNote = styled.p`
+    color: #93c2db;
+    margin: 1.5rem 0 2rem 0;
+`;
+
 const RegistrationForm: React.FC = () => {
+    const [formData, setFormData] = useState({
+        first_name: "",
+        last_name: "",
+        personal_email: "",
+        kiit_email: "",
+        kiit_roll_no: "",
+        github_username: "",
+        addr_line_1: "",
+        addr_line_2: "",
+        state: "",
+        city: "",
+        zipcode: "",
+        phone_no: "",
+        tshirt_size: "",
+    });
+
+    const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const onFormSubmit = (e: React.SyntheticEvent) => {
+		// Change submission code here
+        e.preventDefault();
+        console.log(formData);
+    };
+
     return (
         <SectionDark>
             <Heading>Register for the event</Heading>
@@ -147,8 +253,8 @@ const RegistrationForm: React.FC = () => {
             <br />
             <br />
             <br />
-            <FormContainer>
-                <PersonalDetails></PersonalDetails>
+            <FormContainer onSubmit={onFormSubmit}>
+                <PersonalDetails changeHandler={onChangeHandler} />
 
                 <hr
                     style={{
@@ -158,7 +264,13 @@ const RegistrationForm: React.FC = () => {
                     }}
                 ></hr>
 
-                <PrizesAddress />
+                <PrizesAddress changeHandler={onChangeHandler}/>
+
+                <SubmissionNote>
+                    Important : Once Submitted the details cannot be changed, so
+                    please review the filled up details before submitting.
+                </SubmissionNote>
+                <SubmitButton />
             </FormContainer>
         </SectionDark>
     );
