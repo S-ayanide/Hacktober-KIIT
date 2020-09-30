@@ -1,36 +1,36 @@
-import React from 'react'
-import styled, { useTheme } from 'styled-components'
-import { Button } from '../../button'
-import { HacktoberFestImage } from '../../image-fetch/HacktoberFestImage'
-import { BoundedContainer, ResponsiveRow, SectionDark } from '../../layout'
-import { Paragraph } from '../../texts'
+import React from "react";
+import styled, { useTheme } from "styled-components";
+import { Button } from "../../button";
+import { HacktoberFestImage } from "../../image-fetch/HacktoberFestImage";
+import { BoundedContainer, ResponsiveRow, SectionDark } from "../../layout";
+import { Paragraph } from "../../texts";
 
 const MainHeading = styled.h1`
   margin: 1rem 0;
   line-height: 130%;
   color: white;
-  font-size: ${(props) => (props.theme.screens.md ? '2rem' : '2.6rem')};
-`
+  font-size: ${props => (props.theme.screens.md ? "2rem" : "2.6rem")};
+`;
 
 const ImageWrapper = styled.div`
-  margin: ${(props) =>
+  margin: ${props =>
     props.theme.screens.md
-      ? '3rem 0'
+      ? "3rem 0"
       : props.theme.screens.xl
-      ? '10rem 0'
-      : '5rem 0 5rem 3rem'};
-  width: ${(props) => (props.theme.screens.md ? '50%' : '35%')};
-`
+      ? "10rem 0"
+      : "5rem 0 5rem 3rem"};
+  width: ${props => (props.theme.screens.md ? "50%" : "35%")};
+`;
 
 // Components
 const HeadText: React.FC = () => {
-  const { sm, md } = useTheme().screens
+  const { sm, md } = useTheme().screens;
 
-  const flexibleButton = <Button gradientColor="purple">REGISTER NOW</Button>
+  const flexibleButton = <Button gradientColor="purple">REGISTER NOW</Button>;
 
   const HeadContent = (
     <>
-      <Paragraph style={{ color: '#93C2DB' }}>#Hastags</Paragraph>
+      <Paragraph style={{ color: "#93C2DB" }}>#Hastags</Paragraph>
       <MainHeading>
         Celebrate a month-long
         <br />
@@ -43,7 +43,7 @@ const HeadText: React.FC = () => {
         <br />
         Meet new and interesting developers
       </Paragraph>
-      <div style={{ marginTop: '1rem' }}>
+      <div style={{ marginTop: "1rem" }}>
         <a
           rel="noopener noreferrer"
           target="_blank"
@@ -53,20 +53,20 @@ const HeadText: React.FC = () => {
         </a>
       </div>
     </>
-  )
+  );
 
   if (sm) {
-    return <div style={{ marginTop: '5rem' }}>{HeadContent}</div>
+    return <div style={{ marginTop: "5rem" }}>{HeadContent}</div>;
   } else if (md) {
-    return <div style={{ marginTop: '5rem', width: '80%' }}>{HeadContent}</div>
+    return <div style={{ marginTop: "5rem", width: "80%" }}>{HeadContent}</div>;
   } else {
     return (
       <BoundedContainer breakpoint="md" width="40%" margin="6rem 0">
         {HeadContent}
       </BoundedContainer>
-    )
+    );
   }
-}
+};
 
 const HeaderThumbnail: React.FC = () => {
   return (
@@ -74,17 +74,17 @@ const HeaderThumbnail: React.FC = () => {
       <img src="/icons/HeroBackground.svg" alt="Hacktober Background" />
       <div
         style={{
-          width: '25%',
-          position: 'absolute',
-          top: '13rem',
-          right: '15rem',
+          width: "25%",
+          position: "absolute",
+          top: "13rem",
+          right: "15rem"
         }}
       >
         <HacktoberFestImage />
       </div>
     </ImageWrapper>
-  )
-}
+  );
+};
 
 const Head: React.FC = () => {
   return (
@@ -94,7 +94,7 @@ const Head: React.FC = () => {
         <HeaderThumbnail />
       </ResponsiveRow>
     </SectionDark>
-  )
-}
+  );
+};
 
-export { Head }
+export { Head };

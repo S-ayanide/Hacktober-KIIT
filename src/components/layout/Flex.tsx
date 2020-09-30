@@ -1,19 +1,19 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 interface IRow {
-  wrap?: string
+  wrap?: string;
 }
 const Row = styled.div<IRow>`
   display: flex;
   justify-content: space-between;
-  flex-wrap: ${(props) => props.wrap ?? 'no-wrap'};
-`
+  flex-wrap: ${props => props.wrap ?? "no-wrap"};
+`;
 
 const Column = styled.div`
   display: flex;
   flex-direction: column;
   align-items: start;
-`
+`;
 
 const ColumnCenter = styled.div`
   display: flex;
@@ -21,13 +21,13 @@ const ColumnCenter = styled.div`
   justify-content: center;
   width: 100%;
   height: 100%;
-`
+`;
 
 const Center = styled.div`
   display: grid;
   place-items: center;
   width: 100%;
   height: 100%;
-`
+`;
 
-export { Row, Column, ColumnCenter, Center }
+export { Row, Column, ColumnCenter, Center };
