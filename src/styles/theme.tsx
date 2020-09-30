@@ -23,16 +23,15 @@ export default {
     small: { lg: '0.875rem', md: '0.75rem' },
   },
   colors: {
-   colors: {
      primary:{
-   	  Main:'#0069FF',	
-	    Light: '#93C2DB',
-      Dark: '#072540',
+     	 Main:'#0069FF',	
+     	 Light: '#93C2DB',
+      	 Dark: '#072540',
     },
     secondary:{
-      Main:'#FF8AE2',
-      Light:'#FF8AE2',
-      Dark:'#9C4668',
+      	Main:'#FF8AE2',
+      	Light:'#FF8AE2',
+      	Dark:'#9C4668',
     },
     text:{
     	Primary: '#FFFFFF',
