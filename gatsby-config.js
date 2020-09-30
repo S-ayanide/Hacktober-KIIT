@@ -1,4 +1,4 @@
-const siteTitle = "gatsby-starter-typescript-seo-grand";
+const siteTitle = "KIIT Hacktoberfest";
 const siteDescription =
 	"A Gatsby starter with TypeScript, SEO, Styled Components, Prettier, PWA Support, Jest, and more.";
 const siteAuthor = "@s_ayanide";
