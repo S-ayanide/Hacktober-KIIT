@@ -1,19 +1,18 @@
 const siteTitle = "KIIT Hacktoberfest";
 const siteDescription =
-	"A Gatsby starter with TypeScript, SEO, Styled Components, Prettier, PWA Support, Jest, and more.";
-const siteAuthor = "@s_ayanide";
-const siteUrl = "https://gatsby-starter-typescript-seo-grand.netlify.app/";
+	"The Hacktoberfest-KIIT repo outlines the official KIIT Hacktoberfest website and what should be done to achieve better UX.";
+const siteAuthor = "@kiit_team";
+const siteUrl = "https://kiithacktoberfest.netlify.app/";
 const siteImage = `${siteUrl}/icons/ms-icon-310x310.png`;
 const siteKeywords = [
 	"gatsby",
 	"typescript",
-	"starter",
+	"mayadata",
 	"javascript",
 	"react",
-	"prettier",
+	"hacktoberfest",
 	"SEO",
-	"eslint",
-	"grand",
+	"kiit",
 	"filesystem",
 	"helmet",
 	"sharp",
