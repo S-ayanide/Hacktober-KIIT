@@ -56,6 +56,24 @@ const FormInput = styled.input.attrs(props => ({
       : "1.3rem"};
 `;
 
+const SubmitButton = styled.input.attrs(props => ({
+  type: "submit",
+  value: props.value || "SUBMIT"
+}))`
+  background-color: #0069ff;
+  border: none;
+  color: white;
+  border-radius: 110px;
+  padding: 1rem 4rem 1rem 4rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+`;
+
+const SubmissionNote = styled.p`
+  color: #93c2db;
+  margin: 1.5rem 0 2rem 0;
+`;
+
 interface form_prop {
   changeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
@@ -202,23 +220,82 @@ const PrizesAddress: React.FC<form_prop> = ({ changeHandler }) => {
   );
 };
 
-const SubmitButton = styled.input.attrs({
-  type: "submit",
-  value: "SUBMIT"
-})`
-  background-color: #0069ff;
-  border: none;
-  color: white;
-  border-radius: 110px;
-  padding: 1rem 4rem 1rem 4rem;
-  font-weight: 700;
-  font-size: 1.1rem;
-`;
+const MLHRegister: React.FC = () => {
+  const ButtonTimerContainer = styled.div`
+    display: flexbox;
+    flex-direction: left;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    align-items: center;
+  `;
 
-const SubmissionNote = styled.p`
-  color: #93c2db;
-  margin: 1.5rem 0 2rem 0;
-`;
+  const ClosingInText = styled.p`
+    color: white;
+    padding-left: 2rem;
+    font-size: 1.2rem;
+  `;
+
+  const Timer = styled.div`
+    color: white;
+    font-size: 2.6rem;
+    font-weight: 800;
+    padding: 0 2rem 0 2rem;
+  `;
+
+  const startTimer = () => {
+    let launchDate = new Date("October 11, 2020 10:00:00").getTime();
+
+    let x = setInterval(() => {
+      let now = new Date().getTime();
+      let timeLeft = launchDate - now;
+
+      let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+
+      let hours = Math.floor(
+        (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      if (document.getElementById("registerTimer") != null) {
+        document.getElementById(
+          "registerTimer"
+        ).innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+        // If the count down is finished, write some text
+        if (timeLeft < 0) {
+          clearInterval(x);
+          document.getElementById("registerTimer").innerHTML =
+            "Registration Closed.";
+        }
+      }
+    }, 1000);
+  };
+
+  startTimer();
+
+  return (
+    <div>
+      <FormHead>Register</FormHead>
+      <FormSubHead>
+        Register for the event which is going to held on 11th October, 2020. If
+        already filled please ignore it.
+      </FormSubHead>
+      <FormSubHead>
+        Important : You need to register for the event first to get the
+        additional limited edition swags by Mayadata.
+      </FormSubHead>
+
+      <ButtonTimerContainer>
+        <SubmitButton value="REGISTER"></SubmitButton>
+        <div>
+          <ClosingInText>Closing in &rarr;</ClosingInText>
+          <Timer id="registerTimer">12:10:12</Timer>
+        </div>
+      </ButtonTimerContainer>
+    </div>
+  );
+};
 
 const RegistrationForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -277,6 +354,12 @@ const RegistrationForm: React.FC = () => {
           review the filled up details before submitting.
         </SubmissionNote>
         <SubmitButton />
+      </FormContainer>
+
+      <br></br>
+
+      <FormContainer>
+        <MLHRegister></MLHRegister>
       </FormContainer>
     </SectionDark>
   );
