@@ -16,7 +16,7 @@ const SubHeading = styled.h2`
 const FormContainer = styled.form`
     background-color: #183d5d;
     border-radius: 10px;
-    padding: 3rem;
+    padding: ${(props) => (props.theme.screens.md ? "1.6rem" : "3rem")};
 `;
 
 const FormHead = styled.h1`
@@ -34,9 +34,10 @@ const FormSubHead = styled.p`
 const FormInputsContainer = styled.div`
     display: grid;
     grid-auto-rows: auto;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: ${(props) =>
+        props.theme.screens.md ? "repear(1,1fr)" : "repeat(2,1fr)"};
     grid-gap: 2rem;
-    width: 70%;
+    width: ${(props) => (props.theme.screens.md ? "100%" : "70%")};
 `;
 
 const FormInput = styled.input.attrs((props) => ({
@@ -47,7 +48,12 @@ const FormInput = styled.input.attrs((props) => ({
     border: none;
     background-color: #072540;
     color: white;
-    font-size: 1.3rem;
+    font-size: ${(props) =>
+        props.theme.screens.md
+            ? "1rem"
+            : props.theme.screens.xs
+            ? "0.6rem"
+            : "1.3rem"};
 `;
 
 interface form_prop {
@@ -103,7 +109,7 @@ const PersonalDetails: React.FC<form_prop> = ({ changeHandler }) => {
                 ></FormInput>
 
                 <FormInput
-					type="number"
+                    type="number"
                     name="kiit_roll_no"
                     onChange={changeHandler}
                     placeholder="KIIT Roll Number"
@@ -162,25 +168,25 @@ const PrizesAddress: React.FC<form_prop> = ({ changeHandler }) => {
                 ></FormInput>
 
                 <FormInput
-					required
-					name="zipcode"
-					onChange={changeHandler}
+                    required
+                    name="zipcode"
+                    onChange={changeHandler}
                     type="number"
                     placeholder="* Postal / Zip Code"
                 ></FormInput>
 
                 <FormInput
-					required
-					name="phone_no"
-					onChange={changeHandler}
+                    required
+                    name="phone_no"
+                    onChange={changeHandler}
                     type="number"
                     placeholder="* Phone Number"
                 ></FormInput>
 
                 <FormInput
-					required
-					name="tshirt_size"
-					onChange={changeHandler}
+                    required
+                    name="tshirt_size"
+                    onChange={changeHandler}
                     list="tshirt-sizes"
                     placeholder="* Pick a your tshirt size"
                 ></FormInput>
@@ -237,7 +243,7 @@ const RegistrationForm: React.FC = () => {
     };
 
     const onFormSubmit = (e: React.SyntheticEvent) => {
-		// Change submission code here
+        // Change submission code here
         e.preventDefault();
         console.log(formData);
     };
@@ -264,7 +270,7 @@ const RegistrationForm: React.FC = () => {
                     }}
                 ></hr>
 
-                <PrizesAddress changeHandler={onChangeHandler}/>
+                <PrizesAddress changeHandler={onChangeHandler} />
 
                 <SubmissionNote>
                     Important : Once Submitted the details cannot be changed, so
