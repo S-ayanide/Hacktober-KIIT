@@ -223,7 +223,7 @@ const PrizesAddress: React.FC<form_prop> = ({ changeHandler }) => {
 const MLHRegister: React.FC = () => {
   const ButtonTimerContainer = styled.div`
     display: flexbox;
-    flex-direction: left;
+    flex-direction: row;
     flex-wrap: wrap;
     margin-top: 2rem;
     align-items: center;
@@ -231,15 +231,16 @@ const MLHRegister: React.FC = () => {
 
   const ClosingInText = styled.p`
     color: white;
-    padding-left: 2rem;
+    padding: ${props =>
+      props.theme.screens.sm ? "2rem 0 0 0rem" : "0 0 0 2rem"};
     font-size: 1.2rem;
   `;
 
   const Timer = styled.div`
     color: white;
-    font-size: 2.6rem;
+    font-size: ${props => (props.theme.screens.md ? "2.2rem" : "2.6rem")};
     font-weight: 800;
-    padding: 0 2rem 0 2rem;
+    padding: ${props => (props.theme.screens.sm ? "0rem" : "0 2rem 0 2rem")};
   `;
 
   const startTimer = () => {
@@ -290,7 +291,7 @@ const MLHRegister: React.FC = () => {
         <SubmitButton value="REGISTER"></SubmitButton>
         <div>
           <ClosingInText>Closing in &rarr;</ClosingInText>
-          <Timer id="registerTimer">12:10:12</Timer>
+          <Timer id="registerTimer"></Timer>
         </div>
       </ButtonTimerContainer>
     </div>
