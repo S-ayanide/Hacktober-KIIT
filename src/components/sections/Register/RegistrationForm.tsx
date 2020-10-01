@@ -1,64 +1,64 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { SectionDark } from "../../layout";
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import { SectionDark } from '../../layout'
 
 const Heading = styled.h1`
   color: white;
-  font-size: ${props => (props.theme.screens.md ? "2.5rem" : "3.1rem")};
-`;
+  font-size: ${(props) => (props.theme.screens.md ? '2.5rem' : '3.1rem')};
+`
 
 const SubHeading = styled.h2`
   color: #93c2db;
   font-weight: 500;
-  font-size: ${props => (props.theme.screens.md ? "1.3rem" : "1.8rem")};
-`;
+  font-size: ${(props) => (props.theme.screens.md ? '1.3rem' : '1.8rem')};
+`
 
 const FormContainer = styled.form`
   background-color: #183d5d;
   border-radius: 10px;
-  padding: ${props => (props.theme.screens.md ? "1.6rem" : "3rem")};
-`;
+  padding: ${(props) => (props.theme.screens.md ? '1.6rem' : '3rem')};
+`
 
 const FormHead = styled.h1`
   color: white;
-  font-size: ${props => (props.theme.screens.md ? "1.6rem" : "2.2rem")};
-`;
+  font-size: ${(props) => (props.theme.screens.md ? '1.6rem' : '2.2rem')};
+`
 
 const FormSubHead = styled.p`
   color: #93c2db;
   font-weight: 500;
-  font-size: ${props => (props.theme.screens.md ? "1rem" : "1.3rem")};
+  font-size: ${(props) => (props.theme.screens.md ? '1rem' : '1.3rem')};
   margin-top: 0.4rem;
-`;
+`
 
 const FormInputsContainer = styled.div`
   display: grid;
   grid-auto-rows: auto;
-  grid-template-columns: ${props =>
-    props.theme.screens.md ? "repear(1,1fr)" : "repeat(2,1fr)"};
+  grid-template-columns: ${(props) =>
+    props.theme.screens.md ? 'repear(1,1fr)' : 'repeat(2,1fr)'};
   grid-gap: 2rem;
-  width: ${props => (props.theme.screens.md ? "100%" : "70%")};
-`;
+  width: ${(props) => (props.theme.screens.md ? '100%' : '70%')};
+`
 
-const FormInput = styled.input.attrs(props => ({
-  type: props.type || "text"
+const FormInput = styled.input.attrs((props) => ({
+  type: props.type || 'text',
 }))`
   border-radius: 4px;
   padding: 1rem;
   border: none;
   background-color: #072540;
   color: white;
-  font-size: ${props =>
+  font-size: ${(props) =>
     props.theme.screens.md
-      ? "1rem"
+      ? '1rem'
       : props.theme.screens.xs
-      ? "0.6rem"
-      : "1.3rem"};
-`;
+      ? '0.6rem'
+      : '1.3rem'};
+`
 
-const SubmitButton = styled.input.attrs(props => ({
-  type: "submit",
-  value: props.value || "SUBMIT"
+const SubmitButton = styled.input.attrs((props) => ({
+  type: 'submit',
+  value: props.value || 'SUBMIT',
 }))`
   background-color: #0069ff;
   border: none;
@@ -67,15 +67,15 @@ const SubmitButton = styled.input.attrs(props => ({
   padding: 1rem 4rem 1rem 4rem;
   font-weight: 700;
   font-size: 1.1rem;
-`;
+`
 
 const SubmissionNote = styled.p`
   color: #93c2db;
   margin: 1.5rem 0 2rem 0;
-`;
+`
 
 interface form_prop {
-  changeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  changeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 const PersonalDetails: React.FC<form_prop> = ({ changeHandler }) => {
@@ -123,7 +123,7 @@ const PersonalDetails: React.FC<form_prop> = ({ changeHandler }) => {
           type="email"
           name="kiit_email"
           onChange={changeHandler}
-          placeholder="* KIIT Email"
+          placeholder="KIIT Email"
         ></FormInput>
 
         <FormInput
@@ -141,8 +141,8 @@ const PersonalDetails: React.FC<form_prop> = ({ changeHandler }) => {
         ></FormInput>
       </FormInputsContainer>
     </div>
-  );
-};
+  )
+}
 
 const PrizesAddress: React.FC<form_prop> = ({ changeHandler }) => {
   return (
@@ -217,8 +217,8 @@ const PrizesAddress: React.FC<form_prop> = ({ changeHandler }) => {
         </datalist>
       </FormInputsContainer>
     </div>
-  );
-};
+  )
+}
 
 const MLHRegister: React.FC = () => {
   const ButtonTimerContainer = styled.div`
@@ -227,53 +227,53 @@ const MLHRegister: React.FC = () => {
     flex-wrap: wrap;
     margin-top: 2rem;
     align-items: center;
-  `;
+  `
 
   const ClosingInText = styled.p`
     color: white;
-    padding: ${props =>
-      props.theme.screens.sm ? "2rem 0 0 0rem" : "0 0 0 2rem"};
+    padding: ${(props) =>
+      props.theme.screens.sm ? '2rem 0 0 0rem' : '0 0 0 2rem'};
     font-size: 1.2rem;
-  `;
+  `
 
   const Timer = styled.div`
     color: white;
-    font-size: ${props => (props.theme.screens.md ? "2.2rem" : "2.6rem")};
+    font-size: ${(props) => (props.theme.screens.md ? '2rem' : '2.6rem')};
     font-weight: 800;
-    padding: ${props => (props.theme.screens.sm ? "0rem" : "0 2rem 0 2rem")};
-  `;
+    padding: ${(props) => (props.theme.screens.sm ? '0rem' : '0 2rem 0 2rem')};
+  `
 
   const startTimer = () => {
-    let launchDate = new Date("October 11, 2020 10:00:00").getTime();
+    let launchDate = new Date('October 11, 2020 10:00:00').getTime()
 
     let x = setInterval(() => {
-      let now = new Date().getTime();
-      let timeLeft = launchDate - now;
+      let now = new Date().getTime()
+      let timeLeft = launchDate - now
 
-      let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24))
 
       let hours = Math.floor(
-        (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-      let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-      let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+        (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+      )
+      let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60))
+      let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000)
 
-      if (document.getElementById("registerTimer") != null) {
+      if (document.getElementById('registerTimer') != null) {
         document.getElementById(
-          "registerTimer"
-        ).innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+          'registerTimer',
+        ).innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`
 
         // If the count down is finished, write some text
         if (timeLeft < 0) {
-          clearInterval(x);
-          document.getElementById("registerTimer").innerHTML =
-            "Registration Closed.";
+          clearInterval(x)
+          document.getElementById('registerTimer').innerHTML =
+            'Registration Closed.'
         }
       }
-    }, 1000);
-  };
+    }, 1000)
+  }
 
-  startTimer();
+  startTimer()
 
   return (
     <div>
@@ -295,36 +295,36 @@ const MLHRegister: React.FC = () => {
         </div>
       </ButtonTimerContainer>
     </div>
-  );
-};
+  )
+}
 
 const RegistrationForm: React.FC = () => {
   const [formData, setFormData] = useState({
-    first_name: "",
-    last_name: "",
-    personal_email: "",
-    kiit_email: "",
-    kiit_roll_no: "",
-    github_username: "",
-    addr_line_1: "",
-    addr_line_2: "",
-    state: "",
-    city: "",
-    zipcode: "",
-    phone_no: "",
-    tshirt_size: ""
-  });
+    first_name: '',
+    last_name: '',
+    personal_email: '',
+    kiit_email: '',
+    kiit_roll_no: '',
+    github_username: '',
+    addr_line_1: '',
+    addr_line_2: '',
+    state: '',
+    city: '',
+    zipcode: '',
+    phone_no: '',
+    tshirt_size: '',
+  })
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+    const { name, value } = e.target
+    setFormData({ ...formData, [name]: value })
+  }
 
   const onFormSubmit = (e: React.SyntheticEvent) => {
     // Change submission code here
-    e.preventDefault();
-    console.log(formData);
-  };
+    e.preventDefault()
+    console.log(formData)
+  }
 
   return (
     <SectionDark>
@@ -342,9 +342,9 @@ const RegistrationForm: React.FC = () => {
 
         <hr
           style={{
-            height: "1px",
-            backgroundColor: "#93C2DB",
-            margin: "2rem 0 2rem 0"
+            height: '1px',
+            backgroundColor: '#93C2DB',
+            margin: '2rem 0 2rem 0',
           }}
         ></hr>
 
@@ -363,7 +363,7 @@ const RegistrationForm: React.FC = () => {
         <MLHRegister></MLHRegister>
       </FormContainer>
     </SectionDark>
-  );
-};
+  )
+}
 
-export { RegistrationForm };
+export { RegistrationForm }

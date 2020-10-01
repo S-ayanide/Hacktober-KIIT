@@ -15,13 +15,63 @@ const MainHeading = styled.h1`
 
 const ImageWrapper = styled.div`
   margin: ${(props) =>
-    props.theme.screens.md
+    props.theme.screens.lg
       ? '3rem 0'
       : props.theme.screens.xl
       ? '10rem 0'
       : '5rem 0 5rem 3rem'};
   width: ${(props) => (props.theme.screens.md ? '90%' : '35%')};
 `
+
+const Timer = styled.div`
+  color: white;
+  font-size: ${(props) => (props.theme.screens.md ? '1rem' : '1.8rem')};
+  font-weight: 800;
+  padding: ${(props) => (props.theme.screens.sm ? '0rem' : '0 2rem 0 2rem')};
+`
+
+const ClosingInText = styled.p`
+  color: white;
+  padding: ${(props) =>
+    props.theme.screens.sm ? '2rem 0 0 0rem' : '0 0 0 2rem'};
+  font-size: 1.2rem;
+`
+const TimerDiv = styled.div`
+  margin: ${(props) =>
+    props.theme.screens.sm ? '-1.5rem 1rem 1rem 1rem' : '0'};
+`
+
+const startTimer = () => {
+  let launchDate = new Date('October 11, 2020 10:00:00').getTime()
+
+  let x = setInterval(() => {
+    let now = new Date().getTime()
+    let timeLeft = launchDate - now
+
+    let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24))
+
+    let hours = Math.floor(
+      (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+    )
+    let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60))
+    let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000)
+
+    if (document.getElementById('registerTimer') != null) {
+      document.getElementById(
+        'registerTimer',
+      ).innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`
+
+      // If the count down is finished, write some text
+      if (timeLeft < 0) {
+        clearInterval(x)
+        document.getElementById('registerTimer').innerHTML =
+          'Registration Closed.'
+      }
+    }
+  }, 1000)
+}
+
+startTimer()
 
 // Components
 const HeadText: React.FC = () => {
@@ -46,8 +96,12 @@ const HeadText: React.FC = () => {
         <br />
         Meet new and interesting developers
       </Paragraph>
-      <div style={{ marginTop: '1rem' }}>
+      <div style={{ marginTop: '1rem', display: 'flex' }}>
         <Link to="/register">{flexibleButton}</Link>
+        <TimerDiv>
+          <ClosingInText>Closing in &rarr;</ClosingInText>
+          <Timer id="registerTimer"></Timer>
+        </TimerDiv>
       </div>
     </>
   )

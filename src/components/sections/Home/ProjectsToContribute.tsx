@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react'
 import {
   BoundedContainer,
   ResponsiveRow,
-  SectionLight
-} from "../../../components/layout";
-import { Heading, Paragraph } from "../../../components/texts";
+  SectionLight,
+} from '../../../components/layout'
+import { Heading, Paragraph } from '../../../components/texts'
 
 const ProjectsToContributeContent: React.FC = () => {
   return (
@@ -18,8 +18,8 @@ const ProjectsToContributeContent: React.FC = () => {
         chaos Engineering developed by Mayadata.
       </Paragraph>
     </div>
-  );
-};
+  )
+}
 
 const Litmus: React.FC = () => {
   return (
@@ -34,13 +34,13 @@ const Litmus: React.FC = () => {
       <a
         rel="noopener noreferrer"
         target="_blank"
-        href="https://hub.litmuschaos.io/"
+        href="https://github.com/litmuschaos/litmus"
       >
-        <Paragraph style={{ color: "#0069FF" }}>Explore More</Paragraph>
+        <Paragraph style={{ color: '#0069FF' }}>Explore More</Paragraph>
       </a>
     </div>
-  );
-};
+  )
+}
 
 const OpenEBS: React.FC = () => {
   return (
@@ -48,7 +48,7 @@ const OpenEBS: React.FC = () => {
       <img
         src="/icons/openebs.svg"
         alt="OpenEBS Logo"
-        style={{ marginTop: "-6rem", marginLeft: "-2rem" }}
+        style={{ marginTop: '-6rem', marginLeft: '-2rem' }}
       />
 
       <br />
@@ -61,13 +61,13 @@ const OpenEBS: React.FC = () => {
       <a
         rel="noopener noreferrer"
         target="_blank"
-        href="https://hub.litmuschaos.io/"
+        href="https://github.com/openebs/openebs"
       >
-        <Paragraph style={{ color: "#0069FF" }}>Explore More</Paragraph>
+        <Paragraph style={{ color: '#0069FF' }}>Explore More</Paragraph>
       </a>
     </div>
-  );
-};
+  )
+}
 
 // Component
 const ProjectsToContribute: React.FC = () => {
@@ -85,7 +85,7 @@ const ProjectsToContribute: React.FC = () => {
         </BoundedContainer>
       </ResponsiveRow>
     </SectionLight>
-  );
-};
+  )
+}
 
-export { ProjectsToContribute };
+export { ProjectsToContribute }
