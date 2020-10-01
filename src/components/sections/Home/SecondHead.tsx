@@ -1,24 +1,24 @@
-import React from 'react'
-import { Button } from '../../../components/button'
+import React from "react";
+import { Button } from "../../../components/button";
 import {
   BoundedContainer,
   Center,
   ResponsiveRow,
-  SectionDark,
-} from '../../../components/layout'
-import { Heading, Paragraph } from '../../../components/texts'
-import { HacktoberFestImage } from '../../image-fetch/HacktoberFestImage'
+  SectionDark
+} from "../../../components/layout";
+import { Heading, Paragraph } from "../../../components/texts";
+import { HacktoberFestImage } from "../../image-fetch/HacktoberFestImage";
 
 const HeaderContent: React.FC = () => {
   return (
     <div>
-      <Heading style={{ color: 'white' }}>
+      <Heading style={{ color: "white" }}>
         Support open source and pick a<br />
         limited edition T-shirt or plant a tree.
       </Heading>
       <br />
 
-      <Paragraph style={{ color: '#93C2DB' }}>
+      <Paragraph style={{ color: "#93C2DB" }}>
         Hacktoberfest is open to everyone in our global community. Whether
         you’re new to development, a student, long-time contributor, event host,
         or company of any size, you can help drive growth of open source and
@@ -33,8 +33,8 @@ const HeaderContent: React.FC = () => {
         <Button gradientColor="purple">Get Started</Button>
       </a>
     </div>
-  )
-}
+  );
+};
 
 // Component
 const SecondHead: React.FC = () => {
@@ -56,7 +56,7 @@ const SecondHead: React.FC = () => {
         </BoundedContainer>
       </ResponsiveRow>
     </SectionDark>
-  )
-}
+  );
+};
 
-export { SecondHead }
+export { SecondHead };

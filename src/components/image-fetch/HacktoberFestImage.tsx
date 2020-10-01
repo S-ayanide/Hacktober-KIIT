@@ -1,13 +1,13 @@
-import { graphql, useStaticQuery } from 'gatsby'
-import Img from 'gatsby-image'
-import React from 'react'
-import styled from 'styled-components'
-import { Center } from '../layout'
+import { graphql, useStaticQuery } from "gatsby";
+import Img from "gatsby-image";
+import React from "react";
+import styled from "styled-components";
+import { Center } from "../layout";
 
 const Wrapper = styled.div`
   width: 100%;
   height: fit-content;
-`
+`;
 
 const HacktoberFestImage: React.FC = () => {
   const data = useStaticQuery(graphql`
@@ -21,7 +21,7 @@ const HacktoberFestImage: React.FC = () => {
         }
       }
     }
-  `)
+  `);
 
   return (
     <Center>
@@ -29,11 +29,11 @@ const HacktoberFestImage: React.FC = () => {
         <Img
           fluid={data.image.childImageSharp.fluid}
           alt="HacktoberFest KIIT Image"
-          style={{ margin: 'auto' }}
+          style={{ margin: "auto" }}
         />
       </Wrapper>
     </Center>
-  )
-}
+  );
+};
 
-export { HacktoberFestImage }
+export { HacktoberFestImage };

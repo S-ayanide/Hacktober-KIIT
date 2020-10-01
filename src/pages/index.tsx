@@ -1,11 +1,11 @@
-import React from 'react'
-import { Layout } from '../components/layout'
+import React from "react";
+import { Layout } from "../components/layout";
 import {
   Head,
   ProjectsToContribute,
-  SecondHead,
-} from '../components/sections/Home'
-import { SEO } from '../components/seo'
+  SecondHead
+} from "../components/sections/Home";
+import { SEO } from "../components/seo";
 
 const App = () => {
   return (
@@ -15,7 +15,7 @@ const App = () => {
       <SecondHead />
       <ProjectsToContribute />
     </Layout>
-  )
-}
+  );
+};
 
-export default App
+export default App;
