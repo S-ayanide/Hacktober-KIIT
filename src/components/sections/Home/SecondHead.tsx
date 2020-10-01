@@ -1,5 +1,4 @@
 import React from 'react'
-import { Button } from '../../../components/button'
 import {
   BoundedContainer,
   Center,
@@ -24,13 +23,6 @@ const HeaderContent: React.FC = () => {
         make positive contributions to an ever-growing community. chunk of them.
       </Paragraph>
       <br />
-      <a
-        rel="noopener noreferrer"
-        target="_blank"
-        href="https://hub.litmuschaos.io/"
-      >
-        <Button>Get Started</Button>
-      </a>
     </div>
   )
 }
