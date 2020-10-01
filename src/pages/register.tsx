@@ -1,15 +1,13 @@
-import React from "react";
-import { ThemeProvider } from "styled-components";
-import { theme } from "../styles";
-
-import { RegistrationForm } from "../components/sections/Register";
+import React from 'react'
+import { Layout } from '../components/layout'
+import { RegistrationForm } from '../components/sections/Register'
 
 const register: React.FC = () => {
   return (
-    <ThemeProvider theme={theme()}>
+    <Layout>
       <RegistrationForm />
-    </ThemeProvider>
-  );
-};
+    </Layout>
+  )
+}
 
-export default register;
+export default register
