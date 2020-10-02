@@ -21,24 +21,28 @@ const ImageWrapper = styled.div`
       ? '10rem 0'
       : '5rem 0 5rem 3rem'};
   width: ${(props) => (props.theme.screens.md ? '90%' : '35%')};
-`
+        `
 
 const Timer = styled.div`
   color: white;
-  font-size: ${(props) => (props.theme.screens.md ? '1rem' : '1.8rem')};
-  font-weight: 800;
-  padding: ${(props) => (props.theme.screens.sm ? '0rem' : '0 2rem 0 2rem')};
+font - size: ${ (props) => (props.theme.screens.md ? '1rem' : '1.8rem') };
+font - weight: 800;
+padding: ${ (props) => (props.theme.screens.sm ? '0rem' : '0 2rem 0 2rem') };
 `
 
 const ClosingInText = styled.p`
-  color: white;
-  padding: ${(props) =>
-    props.theme.screens.sm ? '2rem 0 0 0rem' : '0 0 0 2rem'};
-  font-size: 1.2rem;
+color: white;
+padding: ${
+  (props) =>
+    props.theme.screens.sm ? '2rem 0 0 0rem' : '0 0 0 2rem'
+};
+font - size: 1.2rem;
 `
 const TimerDiv = styled.div`
-  margin: ${(props) =>
-    props.theme.screens.sm ? '-1.5rem 1rem 1rem 1rem' : '0'};
+margin: ${
+  (props) =>
+    props.theme.screens.sm ? '-1.5rem 1rem 1rem 1rem' : '0'
+};
 `
 
 const startTimer = () => {
@@ -59,7 +63,7 @@ const startTimer = () => {
     if (document.getElementById('registerTimer') != null) {
       document.getElementById(
         'registerTimer',
-      ).innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`
+      ).innerHTML = `${ days } d ${ hours } h ${ minutes } m ${ seconds } s`
 
       // If the count down is finished, write some text
       if (timeLeft < 0) {
