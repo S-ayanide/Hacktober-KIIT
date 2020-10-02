@@ -1,54 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700;800&display=swap');
 
 html {
-  font-family: 'Ubuntu', sans-serif;
+    font-family: "Inter", sans-serif;
 }
 
 body {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 a {
-  text-decoration: none;
-  color: #000;
+    text-decoration: none;
+    color: #000;
 }
 
 /* SVGs font work differenly than normal HTML elements. So this rule is required. */
 svg,
 text {
-  font-family: Ubuntu !important;
-  font-weight: 300;
+    font-family: Inter !important;
+    font-weight: 300;
 }
 
 /* ScrollBar css */
 
 ::-webkit-scrollbar {
-  width: 0.8rem;
+    width: 0.8rem;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+    background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #858cdd;
-  border-radius: 3rem;
+    background: #858cdd;
+    border-radius: 3rem;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #5b44ba;
-  cursor: pointer;
+    background: #5b44ba;
+    cursor: pointer;
 }
 
 /* Text Selection Colours */
 
 ::-moz-selection {
-  color: white;
-  background: #858cdd;
+    color: white;
+    background: #858cdd;
 }
 
 ::selection {
-  color: white;
-  background: #858cdd;
+    color: white;
+    background: #858cdd;
 }

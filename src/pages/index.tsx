@@ -6,6 +6,7 @@ import {
   ProjectsToContribute,
   SecondHead,
   TimerComponent,
+
 } from "../components/sections/Home";
 import { SEO } from "../components/seo";
 

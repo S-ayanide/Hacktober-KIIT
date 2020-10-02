@@ -34,7 +34,7 @@ const Litmus: React.FC = () => {
       <a
         rel="noopener noreferrer"
         target="_blank"
-        href="https://hub.litmuschaos.io/"
+        href="https://github.com/litmuschaos/litmus"
       >
         <Paragraph style={{ color: '#0069FF' }}>Explore More</Paragraph>
       </a>
@@ -61,7 +61,7 @@ const OpenEBS: React.FC = () => {
       <a
         rel="noopener noreferrer"
         target="_blank"
-        href="https://hub.litmuschaos.io/"
+        href="https://github.com/openebs/openebs"
       >
         <Paragraph style={{ color: '#0069FF' }}>Explore More</Paragraph>
       </a>

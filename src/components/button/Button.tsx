@@ -1,35 +1,46 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 interface IButton {
-  gradientColor?: "purple" | "green";
-  backgroundColor?: string;
+  gradientColor?: 'purple' | 'green'
+  backgroundColor?: string
 }
 
 interface IOutlinedButton {
-  backgroundColor: string;
-  width?: string;
+  backgroundColor: string
+  width?: string
 }
 
 // Default Button Styles
-const Button = styled.button<IButton>`
-  height: 3rem;
-  min-width: 10rem;
-  width: ${(props) => (props.theme.screens.sm ? "100%" : "18rem")};
+// const Button = styled.button<IButton>`
+//   height: 3rem;
+//   min-width: 10rem;
+//   width: ${props => (props.theme.screens.sm ? "100%" : "18rem")};
+//   border: none;
+//   background: ${props =>
+//     props.gradientColor === "purple"
+//       ? props.theme.gradient.purple
+//       : props.gradientColor === "green"
+//       ? props.theme.gradient.green
+//       : props.backgroundColor};
+//   color: white;
+//   border-radius: 0.25rem;
+//   font-size: ${props => props.theme.fontSize.button};
+//   cursor: pointer;
+//   :disabled {
+//     background: lightgray;
+//   }
+// `;
+
+const Button = styled.button`
+  background-color: #0069ff;
   border: none;
-  background: ${(props) =>
-    props.gradientColor === "purple"
-      ? props.theme.gradient.purple
-      : props.gradientColor === "green"
-      ? props.theme.gradient.green
-      : props.backgroundColor};
   color: white;
-  border-radius: 0.25rem;
-  font-size: ${(props) => props.theme.fontSize.button};
+  border-radius: 110px;
+  padding: 1rem 4rem 1rem 4rem;
+  font-weight: 700;
+  font-size: 1.1rem;
   cursor: pointer;
-  :disabled {
-    background: lightgray;
-  }
-`;
+`
 
 // White On Green Button Styles
 const WhiteOnGreenButton = styled.button`
@@ -46,14 +57,14 @@ const WhiteOnGreenButton = styled.button`
   :disabled {
     background: lightgray;
   }
-`;
+`
 
 // Outline Button Styles
 const OutlinedButton = styled.button<IOutlinedButton>`
   min-width: 2rem;
   padding: 0.5rem 2rem;
   background: transparent;
-  width: ${(props) => (props.theme.screens.sm ? "100%" : "max-content")};
+  width: ${(props) => (props.theme.screens.sm ? '100%' : 'max-content')};
   color: ${(props) => props.backgroundColor};
   border: 0.05rem solid ${(props) => props.backgroundColor};
   border-radius: 0.5rem;
@@ -62,6 +73,6 @@ const OutlinedButton = styled.button<IOutlinedButton>`
   :disabled {
     background: lightgray;
   }
-`;
+`
 
-export { Button, OutlinedButton, WhiteOnGreenButton };
+export { Button, OutlinedButton, WhiteOnGreenButton }
