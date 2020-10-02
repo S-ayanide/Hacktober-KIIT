@@ -17,8 +17,8 @@ const ImageWrapper = styled.div`
     props.theme.screens.md
       ? '3rem 0'
       : props.theme.screens.xl
-      ? '10rem 0'
-      : '5rem 0 5rem 3rem'};
+        ? '10rem 0'
+        : '5rem 0 5rem 3rem'};
   width: ${(props) => (props.theme.screens.md ? '50%' : '35%')};
 `
 
