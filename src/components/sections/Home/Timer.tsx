@@ -7,7 +7,7 @@ import {
 	ResponsiveRow,
 	SectionLight,
 } from "../../../components/layout";
-import { Heading, Paragraph, SmallText } from "../../../components/texts";
+import { Heading, SubHeading, SmallText } from "../../../components/texts";
 
 
 const ImageWrapper = styled.div`
@@ -58,9 +58,9 @@ const TimeBanner: React.FC = () => {
 	return (
 		<BoundedContainer breakpoint="lg" width="75%" margin="0">
 			<SmallText>
-				Closing in -&gt;
+				Closing in &rarr;
 			</SmallText>
-			<Heading>
+			<Heading style={{ fontSize: '2rem' }}>
 				{difference > 0 ?
 					`
 					${Object.values(timeLeft)[0]} ${"  Days "}
@@ -68,7 +68,7 @@ const TimeBanner: React.FC = () => {
 					${Object.values(timeLeft)[2]} ${"  Minutes "}
 				` : `Time's Up`}
 			</Heading>
-			<div style={{ marginTop: '1rem' }}>
+			<div style={{ marginTop: '1rem', marginBottom: '1rem' }}>
 				<a
 					rel="noopener noreferrer"
 					target="_blank"
@@ -77,7 +77,7 @@ const TimeBanner: React.FC = () => {
 					{flexibleButton}
 				</a>
 			</div>
-			<div>This year make contributions that you are proud of.</div>
+			<SubHeading>This year make contributions that you are proud of.</SubHeading>
 		</BoundedContainer>
 	);
 }
@@ -90,7 +90,7 @@ const TimerThumbnail: React.FC = () => {
 	// ')
 	return (
 		<ImageWrapper>
-			<img src="./icons/HacktoberfestIcon.png" alt="Hacktober Logo" />
+			<img src="/icons/HacktoberFestIcon.png" alt="Hacktober Logo" />
 		</ImageWrapper >
 
 	);
