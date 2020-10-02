@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { SectionDark } from '../../layout'
+import config from '../../../config'
 
 const Heading = styled.h1`
   color: white;
@@ -128,7 +129,7 @@ const PersonalDetails: React.FC<form_prop> = ({ changeHandler }) => {
 
         <FormInput
           type="number"
-          name="kiit_roll_no"
+          name="kiit_roll_number"
           onChange={changeHandler}
           placeholder="KIIT Roll Number"
         ></FormInput>
@@ -158,21 +159,21 @@ const PrizesAddress: React.FC<form_prop> = ({ changeHandler }) => {
 
       <FormInputsContainer>
         <FormInput
-          name="addr_line_1"
+          name="address_line_1"
           onChange={changeHandler}
           required
           placeholder="* Address Line 1"
         ></FormInput>
 
         <FormInput
-          name="addr_line_2"
+          name="address_line_2"
           onChange={changeHandler}
           required
           placeholder="* Address Line 2"
         ></FormInput>
 
         <FormInput
-          name="state"
+          name="state_province"
           onChange={changeHandler}
           required
           placeholder="* State / Province"
@@ -187,7 +188,7 @@ const PrizesAddress: React.FC<form_prop> = ({ changeHandler }) => {
 
         <FormInput
           required
-          name="zipcode"
+          name="postal_zip_code"
           onChange={changeHandler}
           type="number"
           placeholder="* Postal / Zip Code"
@@ -195,7 +196,7 @@ const PrizesAddress: React.FC<form_prop> = ({ changeHandler }) => {
 
         <FormInput
           required
-          name="phone_no"
+          name="phone_number"
           onChange={changeHandler}
           type="number"
           placeholder="* Phone Number"
@@ -203,7 +204,7 @@ const PrizesAddress: React.FC<form_prop> = ({ changeHandler }) => {
 
         <FormInput
           required
-          name="tshirt_size"
+          name="t_shirt_size"
           onChange={changeHandler}
           list="tshirt-sizes"
           placeholder="* Pick a your tshirt size"
@@ -299,20 +300,22 @@ const MLHRegister: React.FC = () => {
 }
 
 const RegistrationForm: React.FC = () => {
+  const responseCode = 200
+
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
     personal_email: '',
     kiit_email: '',
-    kiit_roll_no: '',
+    kiit_roll_number: '',
     github_username: '',
-    addr_line_1: '',
-    addr_line_2: '',
-    state: '',
+    address_line_1: '',
+    address_line_2: '',
+    state_province: '',
     city: '',
-    zipcode: '',
-    phone_no: '',
-    tshirt_size: '',
+    postal_zip_code: '',
+    phone_number: '',
+    t_shirt_size: '',
   })
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -321,9 +324,30 @@ const RegistrationForm: React.FC = () => {
   }
 
   const onFormSubmit = (e: React.SyntheticEvent) => {
-    // Change submission code here
     e.preventDefault()
-    console.log(formData)
+    fetch(`${config.registration.url}/register`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        if (response.status !== responseCode) {
+          console.log('Registration UnSuccessful !')
+        } else {
+          console.log('Registered for the event.')
+        }
+        return response.json()
+      })
+      .then((data) => {
+        if ('error' in data) {
+          console.error(data)
+        } else {
+          console.log('Registration successful.')
+        }
+      })
+      .catch((err) => {
+        console.error(err)
+      })
   }
 
   return (
