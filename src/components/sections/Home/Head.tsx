@@ -10,7 +10,7 @@ const MainHeading = styled.h1`
   margin: 1rem 0;
   line-height: 130%;
   color: white;
-  font-size: ${(props) => (props.theme.screens.md ? '2rem' : '2.6rem')};
+  font-size: ${(props) => (props.theme.screens.md ? '2rem' : '2.4rem')};
 `
 
 const ImageWrapper = styled.div`
@@ -25,7 +25,7 @@ const ImageWrapper = styled.div`
 
 const Timer = styled.div`
   color: white;
-  font-size: ${(props) => (props.theme.screens.md ? '1rem' : '1.8rem')};
+  font-size: ${(props) => (props.theme.screens.md ? '1rem' : '1.2rem')};
   font-weight: 800;
   padding: ${(props) => (props.theme.screens.sm ? '0rem' : '0 2rem 0 2rem')};
 `
