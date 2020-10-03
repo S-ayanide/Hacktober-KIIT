@@ -42,7 +42,7 @@ const FooterLeft: React.FC = () => {
   return (
     <div>
       <SmallText>Closing in &rarr;</SmallText>
-      <Heading style={{ fontSize: '3rem', width: '150%' }}>
+      <Heading style={{ fontSize: '3rem', width: '100%' }}>
         {difference > 0
           ? `
 					${Object.values(timeLeft)[0]} ${'  Days '}

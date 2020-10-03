@@ -100,6 +100,30 @@ interface FormDataProps {
   postal_zip_code: string
   phone_number: string
   t_shirt_size: string
+
+  team_name: string
+  team_members: string
+
+  first_name_1: string
+  last_name_1: string
+  personal_email_1: string
+  kiit_email_1: string
+  kiit_roll_number_1: string
+  github_username_1: string
+
+  first_name_2: string
+  last_name_2: string
+  personal_email_2: string
+  kiit_email_2: string
+  kiit_roll_number_2: string
+  github_username_2: string
+
+  first_name_3: string
+  last_name_3: string
+  personal_email_3: string
+  kiit_email_3: string
+  kiit_roll_number_3: string
+  github_username_3: string
 }
 
 interface form_prop {
@@ -178,13 +202,13 @@ const PersonalDetails: React.FC<form_prop> = ({ changeHandler, formData }) => {
   )
 }
 
-const PrizesAddress: React.FC<form_prop> = ({ changeHandler, formData }) => {
+const Teams: React.FC<form_prop> = ({ changeHandler, formData }) => {
   return (
     <div>
-      <FormHead>Prizes and Address</FormHead>
+      <FormHead>Team Registration</FormHead>
       <FormSubHead>
-        Please provide the address where we will deliver your prize and also
-        T-Shirt Size.
+        Please provide the details of your team if you are participating
+        together as a team.
       </FormSubHead>
 
       <br />
@@ -192,69 +216,195 @@ const PrizesAddress: React.FC<form_prop> = ({ changeHandler, formData }) => {
 
       <FormInputsContainer>
         <FormInput
-          name="address_line_1"
+          name="team_name"
           onChange={changeHandler}
-          value={formData.address_line_1}
-          required
-          placeholder="* Address Line 1"
+          value={formData.team_name}
+          placeholder="Team Name"
         ></FormInput>
 
         <FormInput
-          name="address_line_2"
+          name="team_members"
           onChange={changeHandler}
-          value={formData.address_line_2}
-          placeholder="Address Line 2"
+          value={formData.team_members}
+          placeholder="Team Members"
+        ></FormInput>
+      </FormInputsContainer>
+
+      <hr
+        style={{
+          height: '1px',
+          backgroundColor: '#93C2DB',
+          margin: '2rem 0 2rem 0',
+        }}
+      ></hr>
+
+      <FormSubHead>Member 1</FormSubHead>
+
+      <br />
+
+      <FormInputsContainer>
+        <FormInput
+          name="first_name_1"
+          value={formData.first_name_1}
+          onChange={changeHandler}
+          placeholder="First Name"
         ></FormInput>
 
         <FormInput
-          name="state_province"
+          name="last_name_1"
+          value={formData.last_name_1}
           onChange={changeHandler}
-          value={formData.state_province}
-          required
-          placeholder="* State / Province"
+          placeholder="Last Name"
         ></FormInput>
 
         <FormInput
-          required
-          name="city"
+          type="email"
+          name="personal_email_1"
+          value={formData.personal_email_1}
           onChange={changeHandler}
-          value={formData.city}
-          placeholder="* City"
+          placeholder="Personal Email"
         ></FormInput>
 
         <FormInput
-          required
-          name="postal_zip_code"
+          type="email"
+          name="kiit_email_1"
+          value={formData.kiit_email_1}
           onChange={changeHandler}
-          value={formData.postal_zip_code}
+          placeholder="KIIT Email"
+        ></FormInput>
+
+        <FormInput
           type="number"
-          placeholder="* Postal / Zip Code"
+          name="kiit_roll_number_1"
+          value={formData.kiit_roll_number_1}
+          onChange={changeHandler}
+          placeholder="KIIT Roll Number"
         ></FormInput>
 
         <FormInput
-          required
-          name="phone_number"
+          name="github_username_1"
           onChange={changeHandler}
-          value={formData.phone_number}
+          value={formData.github_username_1}
+          placeholder="Github Username"
+        ></FormInput>
+      </FormInputsContainer>
+
+      <hr
+        style={{
+          height: '1px',
+          backgroundColor: '#93C2DB',
+          margin: '2rem 0 2rem 0',
+        }}
+      ></hr>
+
+      <FormSubHead>Member 2</FormSubHead>
+
+      <br />
+
+      <FormInputsContainer>
+        <FormInput
+          name="first_name_2"
+          value={formData.first_name_2}
+          onChange={changeHandler}
+          placeholder="First Name"
+        ></FormInput>
+
+        <FormInput
+          name="last_name_2"
+          value={formData.last_name_2}
+          onChange={changeHandler}
+          placeholder="Last Name"
+        ></FormInput>
+
+        <FormInput
+          type="email"
+          name="personal_email_2"
+          value={formData.personal_email_2}
+          onChange={changeHandler}
+          placeholder="Personal Email"
+        ></FormInput>
+
+        <FormInput
+          type="email"
+          name="kiit_email_2"
+          value={formData.kiit_email_2}
+          onChange={changeHandler}
+          placeholder="KIIT Email"
+        ></FormInput>
+
+        <FormInput
           type="number"
-          placeholder="* Phone Number"
+          name="kiit_roll_number_2"
+          value={formData.kiit_roll_number_2}
+          onChange={changeHandler}
+          placeholder="KIIT Roll Number"
         ></FormInput>
 
         <FormInput
-          required
-          name="t_shirt_size"
+          name="github_username_2"
           onChange={changeHandler}
-          value={formData.t_shirt_size}
-          list="tshirt-sizes"
-          placeholder="* Pick a your tshirt size"
+          value={formData.github_username_2}
+          placeholder="Github Username"
         ></FormInput>
-        <datalist id="tshirt-sizes">
-          <option value="Men's/Unisex S" />
-          <option value="Men's/Unisex M" />
-          <option value="Men's/Unisex L" />
-          <option value="Men's/Unisex XL" />
-          <option value="Men's/Unisex XXL" />
-        </datalist>
+      </FormInputsContainer>
+
+      <hr
+        style={{
+          height: '1px',
+          backgroundColor: '#93C2DB',
+          margin: '2rem 0 2rem 0',
+        }}
+      ></hr>
+
+      <FormSubHead>Member 3</FormSubHead>
+
+      <br />
+
+      <FormInputsContainer>
+        <FormInput
+          name="first_name_3"
+          value={formData.first_name_3}
+          onChange={changeHandler}
+          placeholder="First Name"
+        ></FormInput>
+
+        <FormInput
+          name="last_name_3"
+          value={formData.last_name_3}
+          onChange={changeHandler}
+          placeholder="Last Name"
+        ></FormInput>
+
+        <FormInput
+          type="email"
+          name="personal_email_3"
+          value={formData.personal_email_3}
+          onChange={changeHandler}
+          placeholder="Personal Email"
+        ></FormInput>
+
+        <FormInput
+          type="email"
+          name="kiit_email_3"
+          value={formData.kiit_email_3}
+          onChange={changeHandler}
+          placeholder="KIIT Email"
+        ></FormInput>
+
+        <FormInput
+          type="number"
+          name="kiit_roll_number_3"
+          value={formData.kiit_roll_number_3}
+          onChange={changeHandler}
+          placeholder="KIIT Roll Number"
+        ></FormInput>
+
+        <FormInput
+          name="github_username_3"
+          onChange={changeHandler}
+          value={formData.github_username_3}
+          placeholder="Github Username"
+        ></FormInput>
       </FormInputsContainer>
     </div>
   )
@@ -361,6 +511,30 @@ const RegistrationForm: React.FC = () => {
     postal_zip_code: '',
     phone_number: '',
     t_shirt_size: '',
+
+    team_name: '',
+    team_members: '',
+
+    first_name_1: '',
+    last_name_1: '',
+    personal_email_1: '',
+    kiit_email_1: '',
+    kiit_roll_number_1: '',
+    github_username_1: '',
+
+    first_name_2: '',
+    last_name_2: '',
+    personal_email_2: '',
+    kiit_email_2: '',
+    kiit_roll_number_2: '',
+    github_username_2: '',
+
+    first_name_3: '',
+    last_name_3: '',
+    personal_email_3: '',
+    kiit_email_3: '',
+    kiit_roll_number_3: '',
+    github_username_3: '',
   })
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -384,6 +558,30 @@ const RegistrationForm: React.FC = () => {
     formDataTyped.append('postal_zip_code', formData.postal_zip_code)
     formDataTyped.append('phone_number', formData.phone_number)
     formDataTyped.append('t_shirt_size', formData.t_shirt_size)
+
+    formDataTyped.append('team_name', formData.team_name)
+    formDataTyped.append('team_members', formData.team_members)
+
+    formDataTyped.append('first_name_1', formData.first_name_1)
+    formDataTyped.append('last_name_1', formData.last_name_1)
+    formDataTyped.append('personal_email_1', formData.personal_email_1)
+    formDataTyped.append('kiit_email_1', formData.kiit_email_1)
+    formDataTyped.append('kiit_roll_number_1', formData.kiit_roll_number_1)
+    formDataTyped.append('github_username_1', formData.github_username_1)
+
+    formDataTyped.append('first_name_2', formData.first_name_2)
+    formDataTyped.append('last_name_2', formData.last_name_2)
+    formDataTyped.append('personal_email_2', formData.personal_email_2)
+    formDataTyped.append('kiit_email_2', formData.kiit_email_2)
+    formDataTyped.append('kiit_roll_number_2', formData.kiit_roll_number_2)
+    formDataTyped.append('github_username_2', formData.github_username_2)
+
+    formDataTyped.append('first_name_3', formData.first_name_3)
+    formDataTyped.append('last_name_3', formData.last_name_3)
+    formDataTyped.append('personal_email_3', formData.personal_email_3)
+    formDataTyped.append('kiit_email_3', formData.kiit_email_3)
+    formDataTyped.append('kiit_roll_number_3', formData.kiit_roll_number_3)
+    formDataTyped.append('github_username_3', formData.github_username_3)
 
     fetch(`${config.registration.url}/register`, {
       method: 'POST',
@@ -409,6 +607,30 @@ const RegistrationForm: React.FC = () => {
           postal_zip_code: '',
           phone_number: '',
           t_shirt_size: '',
+
+          team_name: '',
+          team_members: '',
+
+          first_name_1: '',
+          last_name_1: '',
+          personal_email_1: '',
+          kiit_email_1: '',
+          kiit_roll_number_1: '',
+          github_username_1: '',
+
+          first_name_2: '',
+          last_name_2: '',
+          personal_email_2: '',
+          kiit_email_2: '',
+          kiit_roll_number_2: '',
+          github_username_2: '',
+
+          first_name_3: '',
+          last_name_3: '',
+          personal_email_3: '',
+          kiit_email_3: '',
+          kiit_roll_number_3: '',
+          github_username_3: '',
         })
         return response.json()
       })
@@ -446,7 +668,7 @@ const RegistrationForm: React.FC = () => {
           }}
         ></hr>
 
-        <PrizesAddress changeHandler={onChangeHandler} formData={formData} />
+        <Teams changeHandler={onChangeHandler} formData={formData} />
 
         <SubmissionNote>
           Important : Once Submitted the details cannot be changed, so please
