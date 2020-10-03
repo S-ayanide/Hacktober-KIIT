@@ -90,7 +90,6 @@ interface FormDataProps {
   first_name: string
   last_name: string
   personal_email: string
-  kiit_email: string
   kiit_roll_number: string
   github_username: string
   address_line_1: string
@@ -107,21 +106,21 @@ interface FormDataProps {
   first_name_1: string
   last_name_1: string
   personal_email_1: string
-  kiit_email_1: string
+  phone_number_1: string
   kiit_roll_number_1: string
   github_username_1: string
 
   first_name_2: string
   last_name_2: string
   personal_email_2: string
-  kiit_email_2: string
+  phone_number_2: string
   kiit_roll_number_2: string
   github_username_2: string
 
   first_name_3: string
   last_name_3: string
   personal_email_3: string
-  kiit_email_3: string
+  phone_number_3: string
   kiit_roll_number_3: string
   github_username_3: string
 }
@@ -175,11 +174,12 @@ const PersonalDetails: React.FC<form_prop> = ({ changeHandler, formData }) => {
         ></FormInput>
 
         <FormInput
-          type="email"
-          name="kiit_email"
-          value={formData.kiit_email}
+          required
+          type="number"
+          name="phone_number"
+          value={formData.phone_number}
           onChange={changeHandler}
-          placeholder="KIIT Email"
+          placeholder="* Contact Number"
         ></FormInput>
 
         <FormInput
@@ -223,6 +223,7 @@ const Teams: React.FC<form_prop> = ({ changeHandler, formData }) => {
         ></FormInput>
 
         <FormInput
+          type="number"
           name="team_members"
           onChange={changeHandler}
           value={formData.team_members}
@@ -266,11 +267,11 @@ const Teams: React.FC<form_prop> = ({ changeHandler, formData }) => {
         ></FormInput>
 
         <FormInput
-          type="email"
-          name="kiit_email_1"
-          value={formData.kiit_email_1}
+          type="number"
+          name="phone_number_1"
+          value={formData.phone_number_1}
           onChange={changeHandler}
-          placeholder="KIIT Email"
+          placeholder="Contact Number"
         ></FormInput>
 
         <FormInput
@@ -325,11 +326,11 @@ const Teams: React.FC<form_prop> = ({ changeHandler, formData }) => {
         ></FormInput>
 
         <FormInput
-          type="email"
-          name="kiit_email_2"
-          value={formData.kiit_email_2}
+          type="number"
+          name="phone_number_2"
+          value={formData.phone_number_2}
           onChange={changeHandler}
-          placeholder="KIIT Email"
+          placeholder="Contact Number"
         ></FormInput>
 
         <FormInput
@@ -384,11 +385,11 @@ const Teams: React.FC<form_prop> = ({ changeHandler, formData }) => {
         ></FormInput>
 
         <FormInput
-          type="email"
-          name="kiit_email_3"
-          value={formData.kiit_email_3}
+          type="number"
+          name="phone_number_3"
+          value={formData.phone_number_3}
           onChange={changeHandler}
-          placeholder="KIIT Email"
+          placeholder="Contact Number"
         ></FormInput>
 
         <FormInput
@@ -501,7 +502,7 @@ const RegistrationForm: React.FC = () => {
     first_name: '',
     last_name: '',
     personal_email: '',
-    kiit_email: '',
+    phone_number: '',
     kiit_roll_number: '',
     github_username: '',
     address_line_1: '',
@@ -509,7 +510,6 @@ const RegistrationForm: React.FC = () => {
     state_province: '',
     city: '',
     postal_zip_code: '',
-    phone_number: '',
     t_shirt_size: '',
 
     team_name: '',
@@ -518,21 +518,21 @@ const RegistrationForm: React.FC = () => {
     first_name_1: '',
     last_name_1: '',
     personal_email_1: '',
-    kiit_email_1: '',
+    phone_number_1: '',
     kiit_roll_number_1: '',
     github_username_1: '',
 
     first_name_2: '',
     last_name_2: '',
     personal_email_2: '',
-    kiit_email_2: '',
+    phone_number_2: '',
     kiit_roll_number_2: '',
     github_username_2: '',
 
     first_name_3: '',
     last_name_3: '',
     personal_email_3: '',
-    kiit_email_3: '',
+    phone_number_3: '',
     kiit_roll_number_3: '',
     github_username_3: '',
   })
@@ -548,7 +548,7 @@ const RegistrationForm: React.FC = () => {
     formDataTyped.append('first_name', formData.first_name)
     formDataTyped.append('last_name', formData.last_name)
     formDataTyped.append('personal_email', formData.personal_email)
-    formDataTyped.append('kiit_email', formData.kiit_email)
+    formDataTyped.append('phone_number', formData.phone_number)
     formDataTyped.append('kiit_roll_number', formData.kiit_roll_number)
     formDataTyped.append('github_username', formData.github_username)
     formDataTyped.append('address_line_1', formData.address_line_1)
@@ -560,44 +560,45 @@ const RegistrationForm: React.FC = () => {
     formDataTyped.append('t_shirt_size', formData.t_shirt_size)
 
     formDataTyped.append('team_name', formData.team_name)
-    formDataTyped.append('team_members', formData.team_members)
+    formDataTyped.append('number_of_team_members', formData.team_members === '' ? '0' : formData.team_members)
 
-    formDataTyped.append('first_name_1', formData.first_name_1)
-    formDataTyped.append('last_name_1', formData.last_name_1)
-    formDataTyped.append('personal_email_1', formData.personal_email_1)
-    formDataTyped.append('kiit_email_1', formData.kiit_email_1)
-    formDataTyped.append('kiit_roll_number_1', formData.kiit_roll_number_1)
-    formDataTyped.append('github_username_1', formData.github_username_1)
+    formDataTyped.append('member_2_first_name', formData.first_name_1)
+    formDataTyped.append('member_2_last_name', formData.last_name_1)
+    formDataTyped.append('member_2_personal_email', formData.personal_email_1)
+    formDataTyped.append('member_2_phone_number', formData.phone_number_1)
+    formDataTyped.append('member_2_kiit_roll_number', formData.kiit_roll_number_1)
+    formDataTyped.append('member_2_github_username', formData.github_username_1)
 
-    formDataTyped.append('first_name_2', formData.first_name_2)
-    formDataTyped.append('last_name_2', formData.last_name_2)
-    formDataTyped.append('personal_email_2', formData.personal_email_2)
-    formDataTyped.append('kiit_email_2', formData.kiit_email_2)
-    formDataTyped.append('kiit_roll_number_2', formData.kiit_roll_number_2)
-    formDataTyped.append('github_username_2', formData.github_username_2)
+    formDataTyped.append('member_3_first_name', formData.first_name_2)
+    formDataTyped.append('member_3_last_name', formData.last_name_2)
+    formDataTyped.append('member_3_personal_email', formData.personal_email_2)
+    formDataTyped.append('member_3_phone_number', formData.phone_number_2)
+    formDataTyped.append('member_3_kiit_roll_number', formData.kiit_roll_number_2)
+    formDataTyped.append('member_3_github_username', formData.github_username_2)
 
-    formDataTyped.append('first_name_3', formData.first_name_3)
-    formDataTyped.append('last_name_3', formData.last_name_3)
-    formDataTyped.append('personal_email_3', formData.personal_email_3)
-    formDataTyped.append('kiit_email_3', formData.kiit_email_3)
-    formDataTyped.append('kiit_roll_number_3', formData.kiit_roll_number_3)
-    formDataTyped.append('github_username_3', formData.github_username_3)
+    formDataTyped.append('member_4_first_name', formData.first_name_3)
+    formDataTyped.append('member_4_last_name', formData.last_name_3)
+    formDataTyped.append('member_4_personal_email', formData.personal_email_3)
+    formDataTyped.append('member_4_phone_number', formData.phone_number_3)
+    formDataTyped.append('member_4_kiit_roll_number', formData.kiit_roll_number_3)
+    formDataTyped.append('member_4_github_username', formData.github_username_3)
 
-    fetch(`${config.registration.url}/register`, {
+    fetch(`${config.registration.url}/register_team`, {
       method: 'POST',
       body: formDataTyped,
     })
       .then((response) => {
+        console.log(response)
         if (response.status !== responseCode) {
           setEventMessage('❌ Registration Unsuccessful!')
+          window.alert(response.statusText);
         } else {
-          setEventMessage('✅ Successfully Registered for the event.')
-        }
+          setEventMessage('✅ Successfully Registered for the event.')    
         setFormData({
           first_name: '',
           last_name: '',
           personal_email: '',
-          kiit_email: '',
+          phone_number: '',
           kiit_roll_number: '',
           github_username: '',
           address_line_1: '',
@@ -605,7 +606,6 @@ const RegistrationForm: React.FC = () => {
           state_province: '',
           city: '',
           postal_zip_code: '',
-          phone_number: '',
           t_shirt_size: '',
 
           team_name: '',
@@ -614,24 +614,25 @@ const RegistrationForm: React.FC = () => {
           first_name_1: '',
           last_name_1: '',
           personal_email_1: '',
-          kiit_email_1: '',
+          phone_number_1: '',
           kiit_roll_number_1: '',
           github_username_1: '',
 
           first_name_2: '',
           last_name_2: '',
           personal_email_2: '',
-          kiit_email_2: '',
+          phone_number_2: '',
           kiit_roll_number_2: '',
           github_username_2: '',
 
           first_name_3: '',
           last_name_3: '',
           personal_email_3: '',
-          kiit_email_3: '',
+          phone_number_3: '',
           kiit_roll_number_3: '',
           github_username_3: '',
         })
+      }
         return response.json()
       })
       .then((data) => {
