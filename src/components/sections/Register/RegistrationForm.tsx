@@ -640,6 +640,7 @@ const RegistrationForm: React.FC = () => {
           console.error(data)
         } else {
           console.log('Registration successful.')
+          setEventMessage('✅ Successfully Registered for the event.')
         }
       })
       .catch((err) => {
