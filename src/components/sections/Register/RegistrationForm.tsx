@@ -264,7 +264,6 @@ const MLHRegister: React.FC = () => {
           'registerTimer',
         ).innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`
 
-
         // If the count down is finished, write some text
         if (timeLeft < 0) {
           clearInterval(x)
@@ -326,10 +325,24 @@ const RegistrationForm: React.FC = () => {
 
   const onFormSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault()
+    const formDataTyped = new FormData()
+    formDataTyped.append('first_name', formData.first_name)
+    formDataTyped.append('last_name', formData.last_name)
+    formDataTyped.append('personal_email', formData.personal_email)
+    formDataTyped.append('kiit_email', formData.kiit_email)
+    formDataTyped.append('kiit_roll_number', formData.kiit_roll_number)
+    formDataTyped.append('github_username', formData.github_username)
+    formDataTyped.append('address_line_1', formData.address_line_1)
+    formDataTyped.append('address_line_2', formData.address_line_2)
+    formDataTyped.append('state_province', formData.state_province)
+    formDataTyped.append('city', formData.city)
+    formDataTyped.append('postal_zip_code', formData.postal_zip_code)
+    formDataTyped.append('phone_number', formData.phone_number)
+    formDataTyped.append('t_shirt_size', formData.t_shirt_size)
+
     fetch(`${config.registration.url}/register`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData), //test
+      body: formDataTyped,
     })
       .then((response) => {
         if (response.status !== responseCode) {
