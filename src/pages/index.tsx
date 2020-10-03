@@ -5,6 +5,7 @@ import {
   Head,
   ProjectsToContribute,
   SecondHead,
+  Events,
   TimerComponent,
   PreFooter,
 
@@ -17,6 +18,7 @@ const App = () => {
       <SEO />
       <Head />
       <SecondHead />
+      <Events />
       <ProjectsToContribute />
       <PreFooter />
       <TimerComponent />

@@ -25,8 +25,8 @@ const ImageWrapper = styled.div`
 
 const Timer = styled.div`
   color: white;
-font - size: ${ (props) => (props.theme.screens.md ? '1rem' : '1.8rem') };
-font - weight: 800;
+font-size: ${ (props) => (props.theme.screens.md ? '1rem' : '1.8rem') };
+font-weight: 800;
 padding: ${ (props) => (props.theme.screens.sm ? '0rem' : '0 2rem 0 2rem') };
 `
 
