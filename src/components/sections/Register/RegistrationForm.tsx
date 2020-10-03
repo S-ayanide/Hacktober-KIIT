@@ -264,6 +264,7 @@ const MLHRegister: React.FC = () => {
           'registerTimer',
         ).innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`
 
+
         // If the count down is finished, write some text
         if (timeLeft < 0) {
           clearInterval(x)
@@ -328,7 +329,7 @@ const RegistrationForm: React.FC = () => {
     fetch(`${config.registration.url}/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(formData), //test
     })
       .then((response) => {
         if (response.status !== responseCode) {
