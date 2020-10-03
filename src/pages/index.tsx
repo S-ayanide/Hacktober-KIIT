@@ -5,6 +5,7 @@ import {
   Head,
   ProjectsToContribute,
   SecondHead,
+  Sponsors,
 } from '../components/sections/Home'
 import { SEO } from '../components/seo'
 
@@ -15,6 +16,7 @@ const App = () => {
       <Head />
       <SecondHead />
       <ProjectsToContribute />
+      <Sponsors />
       <Footer />
     </Layout>
   )
