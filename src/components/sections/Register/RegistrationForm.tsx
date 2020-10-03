@@ -325,9 +325,12 @@ const RegistrationForm: React.FC = () => {
 
   const onFormSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault()
+    const customHeader = new Headers()
+    customHeader.append('Content-Type', 'application/json')
+    customHeader.append('origin', '*')
     fetch(`${config.registration.url}/register`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: customHeader,
       body: JSON.stringify(formData),
     })
       .then((response) => {
