@@ -133,7 +133,7 @@ interface form_prop {
 const PersonalDetails: React.FC<form_prop> = ({ changeHandler, formData }) => {
   return (
     <div>
-      <FormHead>Personal Detail</FormHead>
+      <FormHead>Personal Details</FormHead>
       <FormSubHead>
         This information will be used by Mayadata and partnered organisations to
         deliver our limited edition swags.
