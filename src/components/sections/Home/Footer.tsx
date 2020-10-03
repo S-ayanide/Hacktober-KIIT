@@ -42,7 +42,7 @@ const FooterLeft: React.FC = () => {
   return (
     <div>
       <SmallText>Closing in &rarr;</SmallText>
-      <Heading style={{ fontSize: '3rem', width: '150%' }}>
+      <Heading style={{ fontSize: '3rem', width: '100%' }}>
         {difference > 0
           ? `
 					${Object.values(timeLeft)[0]} ${'  Days '}
@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
   return (
     <SectionLight>
       <ResponsiveRow breakpoint="lg">
-        <BoundedContainer breakpoint="lg" width="60%" margin="-4rem 0">
+        <BoundedContainer breakpoint="lg" width="60%" margin="3rem 0">
           <FooterLeft />
           <div style={{ marginTop: '1rem', display: 'flex' }}>
             <Link to="/register">{flexibleButton}</Link>
@@ -76,7 +76,7 @@ const Footer: React.FC = () => {
         <BoundedContainer
           breakpoint="lg"
           width="40%"
-          margin="-4rem 4rem 4rem 10rem"
+          margin="0 4rem 4rem 10rem"
         >
           <Center>
             <HacktoberLogo />
