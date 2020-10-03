@@ -227,7 +227,7 @@ const Teams: React.FC<form_prop> = ({ changeHandler, formData }) => {
           name="team_members"
           onChange={changeHandler}
           value={formData.team_members}
-          placeholder="Team Members"
+          placeholder="Number of Team Members"
         ></FormInput>
       </FormInputsContainer>
 
