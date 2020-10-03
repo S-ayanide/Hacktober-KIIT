@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { SectionDark } from '../../layout'
 import config from '../../../config'
+import { SectionDark } from '../../layout'
+import { Heading as Message } from '../../texts'
 
 const Heading = styled.h1`
   color: white;
@@ -70,16 +71,67 @@ const SubmitButton = styled.input.attrs((props) => ({
   font-size: 1.1rem;
 `
 
+const SimpleButton = styled.div`
+  background-color: #0069ff;
+  border: none;
+  color: white;
+  border-radius: 110px;
+  padding: 1rem 4rem 1rem 4rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+`
+
 const SubmissionNote = styled.p`
   color: #93c2db;
   margin: 1.5rem 0 2rem 0;
 `
 
-interface form_prop {
-  changeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void
+interface FormDataProps {
+  first_name: string
+  last_name: string
+  personal_email: string
+  kiit_email: string
+  kiit_roll_number: string
+  github_username: string
+  address_line_1: string
+  address_line_2: string
+  state_province: string
+  city: string
+  postal_zip_code: string
+  phone_number: string
+  t_shirt_size: string
+
+  team_name: string
+  team_members: string
+
+  first_name_1: string
+  last_name_1: string
+  personal_email_1: string
+  kiit_email_1: string
+  kiit_roll_number_1: string
+  github_username_1: string
+
+  first_name_2: string
+  last_name_2: string
+  personal_email_2: string
+  kiit_email_2: string
+  kiit_roll_number_2: string
+  github_username_2: string
+
+  first_name_3: string
+  last_name_3: string
+  personal_email_3: string
+  kiit_email_3: string
+  kiit_roll_number_3: string
+  github_username_3: string
 }
 
-const PersonalDetails: React.FC<form_prop> = ({ changeHandler }) => {
+interface form_prop {
+  changeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void
+  formData: FormDataProps
+}
+
+const PersonalDetails: React.FC<form_prop> = ({ changeHandler, formData }) => {
   return (
     <div>
       <FormHead>Personal Detail</FormHead>
@@ -100,6 +152,7 @@ const PersonalDetails: React.FC<form_prop> = ({ changeHandler }) => {
         <FormInput
           required
           name="first_name"
+          value={formData.first_name}
           onChange={changeHandler}
           placeholder="* First Name"
         ></FormInput>
@@ -107,6 +160,7 @@ const PersonalDetails: React.FC<form_prop> = ({ changeHandler }) => {
         <FormInput
           required
           name="last_name"
+          value={formData.last_name}
           onChange={changeHandler}
           placeholder="* Last Name"
         ></FormInput>
@@ -115,14 +169,15 @@ const PersonalDetails: React.FC<form_prop> = ({ changeHandler }) => {
           required
           type="email"
           name="personal_email"
+          value={formData.personal_email}
           onChange={changeHandler}
           placeholder="* Personal Email"
         ></FormInput>
 
         <FormInput
-          required
           type="email"
           name="kiit_email"
+          value={formData.kiit_email}
           onChange={changeHandler}
           placeholder="KIIT Email"
         ></FormInput>
@@ -130,6 +185,7 @@ const PersonalDetails: React.FC<form_prop> = ({ changeHandler }) => {
         <FormInput
           type="number"
           name="kiit_roll_number"
+          value={formData.kiit_roll_number}
           onChange={changeHandler}
           placeholder="KIIT Roll Number"
         ></FormInput>
@@ -137,6 +193,7 @@ const PersonalDetails: React.FC<form_prop> = ({ changeHandler }) => {
         <FormInput
           name="github_username"
           onChange={changeHandler}
+          value={formData.github_username}
           required
           placeholder="* Github Username"
         ></FormInput>
@@ -145,13 +202,13 @@ const PersonalDetails: React.FC<form_prop> = ({ changeHandler }) => {
   )
 }
 
-const PrizesAddress: React.FC<form_prop> = ({ changeHandler }) => {
+const Teams: React.FC<form_prop> = ({ changeHandler, formData }) => {
   return (
     <div>
-      <FormHead>Prizes and Address</FormHead>
+      <FormHead>Team Registration</FormHead>
       <FormSubHead>
-        Please provide the address where we will deliver your prize and also
-        T-Shirt Size.
+        Please provide the details of your team if you are participating
+        together as a team.
       </FormSubHead>
 
       <br />
@@ -159,63 +216,195 @@ const PrizesAddress: React.FC<form_prop> = ({ changeHandler }) => {
 
       <FormInputsContainer>
         <FormInput
-          name="address_line_1"
+          name="team_name"
           onChange={changeHandler}
-          required
-          placeholder="* Address Line 1"
+          value={formData.team_name}
+          placeholder="Team Name"
         ></FormInput>
 
         <FormInput
-          name="address_line_2"
+          name="team_members"
           onChange={changeHandler}
-          required
-          placeholder="* Address Line 2"
+          value={formData.team_members}
+          placeholder="Team Members"
+        ></FormInput>
+      </FormInputsContainer>
+
+      <hr
+        style={{
+          height: '1px',
+          backgroundColor: '#93C2DB',
+          margin: '2rem 0 2rem 0',
+        }}
+      ></hr>
+
+      <FormSubHead>Member 1</FormSubHead>
+
+      <br />
+
+      <FormInputsContainer>
+        <FormInput
+          name="first_name_1"
+          value={formData.first_name_1}
+          onChange={changeHandler}
+          placeholder="First Name"
         ></FormInput>
 
         <FormInput
-          name="state_province"
+          name="last_name_1"
+          value={formData.last_name_1}
           onChange={changeHandler}
-          required
-          placeholder="* State / Province"
+          placeholder="Last Name"
         ></FormInput>
 
         <FormInput
-          required
-          name="city"
+          type="email"
+          name="personal_email_1"
+          value={formData.personal_email_1}
           onChange={changeHandler}
-          placeholder="* City"
+          placeholder="Personal Email"
         ></FormInput>
 
         <FormInput
-          required
-          name="postal_zip_code"
+          type="email"
+          name="kiit_email_1"
+          value={formData.kiit_email_1}
           onChange={changeHandler}
+          placeholder="KIIT Email"
+        ></FormInput>
+
+        <FormInput
           type="number"
-          placeholder="* Postal / Zip Code"
+          name="kiit_roll_number_1"
+          value={formData.kiit_roll_number_1}
+          onChange={changeHandler}
+          placeholder="KIIT Roll Number"
         ></FormInput>
 
         <FormInput
-          required
-          name="phone_number"
+          name="github_username_1"
           onChange={changeHandler}
+          value={formData.github_username_1}
+          placeholder="Github Username"
+        ></FormInput>
+      </FormInputsContainer>
+
+      <hr
+        style={{
+          height: '1px',
+          backgroundColor: '#93C2DB',
+          margin: '2rem 0 2rem 0',
+        }}
+      ></hr>
+
+      <FormSubHead>Member 2</FormSubHead>
+
+      <br />
+
+      <FormInputsContainer>
+        <FormInput
+          name="first_name_2"
+          value={formData.first_name_2}
+          onChange={changeHandler}
+          placeholder="First Name"
+        ></FormInput>
+
+        <FormInput
+          name="last_name_2"
+          value={formData.last_name_2}
+          onChange={changeHandler}
+          placeholder="Last Name"
+        ></FormInput>
+
+        <FormInput
+          type="email"
+          name="personal_email_2"
+          value={formData.personal_email_2}
+          onChange={changeHandler}
+          placeholder="Personal Email"
+        ></FormInput>
+
+        <FormInput
+          type="email"
+          name="kiit_email_2"
+          value={formData.kiit_email_2}
+          onChange={changeHandler}
+          placeholder="KIIT Email"
+        ></FormInput>
+
+        <FormInput
           type="number"
-          placeholder="* Phone Number"
+          name="kiit_roll_number_2"
+          value={formData.kiit_roll_number_2}
+          onChange={changeHandler}
+          placeholder="KIIT Roll Number"
         ></FormInput>
 
         <FormInput
-          required
-          name="t_shirt_size"
+          name="github_username_2"
           onChange={changeHandler}
-          list="tshirt-sizes"
-          placeholder="* Pick a your tshirt size"
+          value={formData.github_username_2}
+          placeholder="Github Username"
         ></FormInput>
-        <datalist id="tshirt-sizes">
-          <option value="Men's/Unisex S" />
-          <option value="Men's/Unisex M" />
-          <option value="Men's/Unisex L" />
-          <option value="Men's/Unisex XL" />
-          <option value="Men's/Unisex XXL" />
-        </datalist>
+      </FormInputsContainer>
+
+      <hr
+        style={{
+          height: '1px',
+          backgroundColor: '#93C2DB',
+          margin: '2rem 0 2rem 0',
+        }}
+      ></hr>
+
+      <FormSubHead>Member 3</FormSubHead>
+
+      <br />
+
+      <FormInputsContainer>
+        <FormInput
+          name="first_name_3"
+          value={formData.first_name_3}
+          onChange={changeHandler}
+          placeholder="First Name"
+        ></FormInput>
+
+        <FormInput
+          name="last_name_3"
+          value={formData.last_name_3}
+          onChange={changeHandler}
+          placeholder="Last Name"
+        ></FormInput>
+
+        <FormInput
+          type="email"
+          name="personal_email_3"
+          value={formData.personal_email_3}
+          onChange={changeHandler}
+          placeholder="Personal Email"
+        ></FormInput>
+
+        <FormInput
+          type="email"
+          name="kiit_email_3"
+          value={formData.kiit_email_3}
+          onChange={changeHandler}
+          placeholder="KIIT Email"
+        ></FormInput>
+
+        <FormInput
+          type="number"
+          name="kiit_roll_number_3"
+          value={formData.kiit_roll_number_3}
+          onChange={changeHandler}
+          placeholder="KIIT Roll Number"
+        ></FormInput>
+
+        <FormInput
+          name="github_username_3"
+          onChange={changeHandler}
+          value={formData.github_username_3}
+          placeholder="Github Username"
+        ></FormInput>
       </FormInputsContainer>
     </div>
   )
@@ -289,7 +478,12 @@ const MLHRegister: React.FC = () => {
       </FormSubHead>
 
       <ButtonTimerContainer>
-        <SubmitButton value="REGISTER"></SubmitButton>
+        <a
+          href="https://organize.mlh.io/participants/events/4819-hacktoberfest-kiit-university-vitual-meetup"
+          target="_blank"
+        >
+          <SimpleButton>REGISTER</SimpleButton>
+        </a>
         <div>
           <ClosingInText>Closing in &rarr;</ClosingInText>
           <Timer id="registerTimer"></Timer>
@@ -302,6 +496,7 @@ const MLHRegister: React.FC = () => {
 const RegistrationForm: React.FC = () => {
   const responseCode = 200
 
+  const [eventMessage, setEventMessage] = useState<string>('')
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
@@ -316,6 +511,30 @@ const RegistrationForm: React.FC = () => {
     postal_zip_code: '',
     phone_number: '',
     t_shirt_size: '',
+
+    team_name: '',
+    team_members: '',
+
+    first_name_1: '',
+    last_name_1: '',
+    personal_email_1: '',
+    kiit_email_1: '',
+    kiit_roll_number_1: '',
+    github_username_1: '',
+
+    first_name_2: '',
+    last_name_2: '',
+    personal_email_2: '',
+    kiit_email_2: '',
+    kiit_roll_number_2: '',
+    github_username_2: '',
+
+    first_name_3: '',
+    last_name_3: '',
+    personal_email_3: '',
+    kiit_email_3: '',
+    kiit_roll_number_3: '',
+    github_username_3: '',
   })
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -340,16 +559,79 @@ const RegistrationForm: React.FC = () => {
     formDataTyped.append('phone_number', formData.phone_number)
     formDataTyped.append('t_shirt_size', formData.t_shirt_size)
 
+    formDataTyped.append('team_name', formData.team_name)
+    formDataTyped.append('team_members', formData.team_members)
+
+    formDataTyped.append('first_name_1', formData.first_name_1)
+    formDataTyped.append('last_name_1', formData.last_name_1)
+    formDataTyped.append('personal_email_1', formData.personal_email_1)
+    formDataTyped.append('kiit_email_1', formData.kiit_email_1)
+    formDataTyped.append('kiit_roll_number_1', formData.kiit_roll_number_1)
+    formDataTyped.append('github_username_1', formData.github_username_1)
+
+    formDataTyped.append('first_name_2', formData.first_name_2)
+    formDataTyped.append('last_name_2', formData.last_name_2)
+    formDataTyped.append('personal_email_2', formData.personal_email_2)
+    formDataTyped.append('kiit_email_2', formData.kiit_email_2)
+    formDataTyped.append('kiit_roll_number_2', formData.kiit_roll_number_2)
+    formDataTyped.append('github_username_2', formData.github_username_2)
+
+    formDataTyped.append('first_name_3', formData.first_name_3)
+    formDataTyped.append('last_name_3', formData.last_name_3)
+    formDataTyped.append('personal_email_3', formData.personal_email_3)
+    formDataTyped.append('kiit_email_3', formData.kiit_email_3)
+    formDataTyped.append('kiit_roll_number_3', formData.kiit_roll_number_3)
+    formDataTyped.append('github_username_3', formData.github_username_3)
+
     fetch(`${config.registration.url}/register`, {
       method: 'POST',
       body: formDataTyped,
     })
       .then((response) => {
         if (response.status !== responseCode) {
-          console.log('Registration UnSuccessful !')
+          setEventMessage('❌ Registration Unsuccessful!')
         } else {
-          console.log('Registered for the event.')
+          setEventMessage('✅ Successfully Registered for the event.')
         }
+        setFormData({
+          first_name: '',
+          last_name: '',
+          personal_email: '',
+          kiit_email: '',
+          kiit_roll_number: '',
+          github_username: '',
+          address_line_1: '',
+          address_line_2: '',
+          state_province: '',
+          city: '',
+          postal_zip_code: '',
+          phone_number: '',
+          t_shirt_size: '',
+
+          team_name: '',
+          team_members: '',
+
+          first_name_1: '',
+          last_name_1: '',
+          personal_email_1: '',
+          kiit_email_1: '',
+          kiit_roll_number_1: '',
+          github_username_1: '',
+
+          first_name_2: '',
+          last_name_2: '',
+          personal_email_2: '',
+          kiit_email_2: '',
+          kiit_roll_number_2: '',
+          github_username_2: '',
+
+          first_name_3: '',
+          last_name_3: '',
+          personal_email_3: '',
+          kiit_email_3: '',
+          kiit_roll_number_3: '',
+          github_username_3: '',
+        })
         return response.json()
       })
       .then((data) => {
@@ -376,7 +658,7 @@ const RegistrationForm: React.FC = () => {
       <br />
       <br />
       <FormContainer onSubmit={onFormSubmit}>
-        <PersonalDetails changeHandler={onChangeHandler} />
+        <PersonalDetails changeHandler={onChangeHandler} formData={formData} />
 
         <hr
           style={{
@@ -386,13 +668,16 @@ const RegistrationForm: React.FC = () => {
           }}
         ></hr>
 
-        <PrizesAddress changeHandler={onChangeHandler} />
+        <Teams changeHandler={onChangeHandler} formData={formData} />
 
         <SubmissionNote>
           Important : Once Submitted the details cannot be changed, so please
           review the filled up details before submitting.
         </SubmissionNote>
         <SubmitButton />
+        <Message style={{ color: 'white', margin: '2rem 0' }}>
+          {eventMessage}
+        </Message>
       </FormContainer>
 
       <br></br>

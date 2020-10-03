@@ -1,11 +1,13 @@
-import React from "react";
-import { Layout } from "../components/layout";
+import React from 'react'
+import { Layout } from '../components/layout'
 import {
+  Footer,
   Head,
   ProjectsToContribute,
-  SecondHead
-} from "../components/sections/Home";
-import { SEO } from "../components/seo";
+  SecondHead,
+  Sponsors,
+} from '../components/sections/Home'
+import { SEO } from '../components/seo'
 
 const App = () => {
   return (
@@ -14,8 +16,10 @@ const App = () => {
       <Head />
       <SecondHead />
       <ProjectsToContribute />
+      <Sponsors />
+      <Footer />
     </Layout>
-  );
-};
+  )
+}
 
-export default App;
+export default App
