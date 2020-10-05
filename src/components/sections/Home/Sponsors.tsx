@@ -66,7 +66,7 @@ const Sponsors: React.FC = () => {
             <a
               rel="noopener noreferrer"
               target="_blank"
-              href="https://dsc.com/"
+              href="https://dsckiit.tech/"
             >
               <img
                 src="/icons/dsc.svg"
@@ -84,7 +84,7 @@ const Sponsors: React.FC = () => {
             <a
               rel="noopener noreferrer"
               target="_blank"
-              href="https://microsoft.com/"
+              href="https://studentambassadors.microsoft.com/"
             >
               <img
                 src="/icons/mspc.svg"
